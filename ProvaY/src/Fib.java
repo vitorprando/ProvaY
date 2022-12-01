@@ -21,13 +21,21 @@ public class Fib {
         }
     }
 
+    public static double recursivo(double n) {
+        if(n <= 1) {
+            return n;
+        }
+        return fibRecursivo(n-1) + fibRecursivo(n-2);
+    }
+
     public static double fibRecursivo(double n) {
         if(n <= 1) {
             return n;
         }
         tempoInicial = System.nanoTime();
-        return fibRecursivo(n-1) + fibRecursivo(n-2);
+        double resultado = recursivo(n);
         tempoFinal = System.nanoTime() - tempoInicial;
+        return resultado;
     }
 
     public static void main(String[] args) {
@@ -38,11 +46,11 @@ public class Fib {
         System.out.println("Iterativo:");
         System.out.println(fibIterativo(n));
         System.out.println("Tempo de execução:");
-        System.out.println(tempoFinal);
+        System.out.println(tempoFinal + " nanossegundos");
 
         System.out.println("Recursivo:");
         System.out.println(fibRecursivo(n));
         System.out.println("Tempo de execução:");
-        System.out.println(tempoFinal);
+        System.out.println(tempoFinal + " nanossegundos");
     }
 }
